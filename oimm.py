@@ -18,7 +18,7 @@ st.title("OIMM (One Interface Multiple Models) - Toy Datasets")
 
 
 dataset_name = st.sidebar.selectbox(
-    "Select a Dataset", ("Iris", "Breast Cancer", "Wine Dataset", "Titanic Dataset")
+    "Select a Dataset", ("Iris Dataset", "Breast Cancer Dataset", "Wine Dataset", "Digits Dataset")
 )
 st.write("The dataset selected is ", dataset_name, "dataset")
 
@@ -26,12 +26,14 @@ model_name = st.sidebar.selectbox("Select a Model", ("KNN", "SVM", "Random Fores
 
 
 def get_dataset(dataset_name):
-    if dataset_name == "Iris":
+    if dataset_name == "Iris Dataset":
         data = datasets.load_iris()
-    elif dataset_name == "Breast Cancer":
+    elif dataset_name == "Breast Cancer Dataset":
         data = datasets.load_breast_cancer()
     elif dataset_name == "Wine Dataset":
         data = datasets.load_wine()
+    elif dataset_name == "Digits Dataset":
+        data = datasets.load_digits()
 
     X = data.data
     y = data.target
